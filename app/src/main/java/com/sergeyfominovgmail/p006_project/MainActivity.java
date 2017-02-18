@@ -43,14 +43,24 @@ public class MainActivity extends AppCompatActivity {
             }
         }
     }
-
     private class ButtonClickHandler implements View.OnClickListener
     {
         @Override
         public void onClick(View view){
-            if (view instanceof Button){
+
+            TextView textViewOutputScreen = (TextView) findViewById(R.id.textView);
+            //очищаем текст, если мы нажали на С
+            if(view.getId() == R.id.buttonClear){
+                textViewOutputScreen.setText("0");
+            }
+            else if (view instanceof Button){
                 Button buttonClicked = (Button)view;
-                TextView textViewOutputScreen = (TextView) findViewById(R.id.textView);
+
+                //equals - Указывает, является ли какой-либо другой объект "равно" этот. Indicates whether some other object is "equal to" this one.
+                //здесь при цифре = 0, когда мы вводим другое число не будет вот так 05, а будет просто 5. 0 исчезает.
+                if (textViewOutputScreen.getText().equals("0")) {
+                    textViewOutputScreen.setText("");
+                }
                 //сердце операции. когда мы присвоили buttonclicked - view, и добавили к нему окошко textView, то остается только к получаемому тексту добавлять текст + string btnClicked
                 //и все это происходит через getText
                 textViewOutputScreen.setText(textViewOutputScreen.getText().toString()+buttonClicked.getText());
