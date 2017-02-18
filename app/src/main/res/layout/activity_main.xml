@@ -6,16 +6,17 @@
     android:layout_height="wrap_content"
     android:background="#FAEBD7"
     android:orientation="horizontal"
-    android:padding="0dp">
+    android:padding="0dp"
+    android:id="@+id/relativeLayoutCalcular" >
 
 
     <Button
-        android:id="@+id/button00"
+        android:id="@+id/buttonProiz"
         android:layout_width="80dp"
         android:layout_height="80dp"
         android:layout_alignParentBottom="true"
         android:background="@drawable/round_button"
-        android:text="00"
+        android:text="*"
         android:textSize="30sp" />
 
     <Button
@@ -25,15 +26,15 @@
         android:layout_alignParentBottom="true"
         android:layout_toEndOf="@+id/buttonTochka"
         android:layout_toRightOf="@+id/buttonTochka"
-        android:text="="
         android:background="@drawable/round_button"
-        android:textSize="30sp"/>
+        android:text="="
+        android:textSize="30sp" />
 
     <Button
         android:id="@+id/button1"
         android:layout_width="80dp"
         android:layout_height="80dp"
-        android:layout_above="@+id/button00"
+        android:layout_above="@+id/buttonProiz"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:background="@drawable/round_button"
@@ -56,22 +57,22 @@
         android:layout_width="80dp"
         android:layout_height="80dp"
         android:layout_alignParentBottom="true"
-        android:layout_toEndOf="@+id/button00"
-        android:layout_toRightOf="@+id/button00"
+        android:layout_toEndOf="@+id/buttonProiz"
+        android:layout_toRightOf="@+id/buttonProiz"
         android:background="@drawable/round_button"
         android:text="0"
         android:textSize="30sp" />
 
     <Button
-        android:id="@+id/buttonResult"
+        android:id="@+id/button5"
         android:layout_width="80dp"
         android:layout_height="80dp"
         android:layout_alignBottom="@+id/button4"
         android:layout_alignTop="@+id/button4"
         android:layout_toEndOf="@+id/button1"
         android:layout_toRightOf="@+id/button1"
-        android:text="5"
         android:background="@drawable/round_button"
+        android:text="5"
         android:textSize="30sp" />
 
     <Button
@@ -101,8 +102,8 @@
         android:layout_width="80dp"
         android:layout_height="80dp"
         android:layout_above="@+id/button35"
-        android:layout_toEndOf="@+id/buttonResult"
-        android:layout_toRightOf="@+id/buttonResult"
+        android:layout_toEndOf="@+id/button5"
+        android:layout_toRightOf="@+id/button5"
         android:background="@drawable/round_button"
         android:text="9"
         android:textSize="30sp" />
@@ -123,81 +124,94 @@
         android:id="@+id/buttonTochka"
         android:layout_width="80dp"
         android:layout_height="80dp"
+        android:layout_alignParentBottom="true"
+        android:layout_toEndOf="@+id/button0"
+        android:layout_toRightOf="@+id/button0"
         android:background="@drawable/round_button"
         android:text="."
-        android:textSize="30sp"
-        android:layout_alignParentBottom="true"
-        android:layout_toRightOf="@+id/button0"
-        android:layout_toEndOf="@+id/button0" />
+        android:textSize="30sp" />
 
     <Button
         android:id="@+id/button2"
         android:layout_width="80dp"
         android:layout_height="80dp"
+        android:layout_below="@+id/button5"
+        android:layout_toEndOf="@+id/buttonProiz"
+        android:layout_toRightOf="@+id/buttonProiz"
         android:background="@drawable/round_button"
         android:text="2"
-        android:textSize="30sp"
-        android:layout_below="@+id/buttonResult"
-        android:layout_toRightOf="@+id/button00"
-        android:layout_toEndOf="@+id/button00" />
+        android:textSize="30sp" />
 
     <Button
         android:id="@+id/button3"
         android:layout_width="80dp"
         android:layout_height="80dp"
+        android:layout_alignBottom="@+id/button2"
+        android:layout_below="@+id/button5"
+        android:layout_toEndOf="@+id/button5"
+        android:layout_toRightOf="@+id/button5"
         android:background="@drawable/round_button"
         android:text="3"
-        android:textSize="30sp"
-        android:layout_alignBottom="@+id/button2"
-        android:layout_toRightOf="@+id/buttonResult"
-        android:layout_toEndOf="@+id/buttonResult"
-        android:layout_below="@+id/buttonResult" />
+        android:textSize="30sp" />
 
     <Button
         android:id="@+id/buttonSk"
         android:layout_width="80dp"
         android:layout_height="80dp"
-        android:text="( )"
-        android:background="@drawable/round_button"
-        android:textSize="30sp"
         android:layout_alignBottom="@+id/button3"
-        android:layout_toRightOf="@+id/button35"
+        android:layout_below="@+id/button35"
         android:layout_toEndOf="@+id/button35"
-        android:layout_below="@+id/button35" />
-
-    <Button
-        android:id="@+id/buttonMinus"
-        android:layout_width="80dp"
-        android:layout_height="80dp"
-        android:text="-"
-        android:background="@drawable/round_button"
-        android:textSize="30sp"
-        android:layout_alignBottom="@+id/button35"
         android:layout_toRightOf="@+id/button35"
-        android:layout_toEndOf="@+id/button35" />
+        android:background="@drawable/round_button"
+        android:text="/"
+        android:textSize="30sp" />
 
     <Button
         android:id="@+id/buttonPlus"
         android:layout_width="80dp"
         android:layout_height="80dp"
-        android:text="+"
-        android:background="@drawable/round_button"
-        android:textSize="30sp"
         android:layout_alignBottom="@+id/button9"
-        android:layout_toRightOf="@+id/button9"
+        android:layout_alignTop="@+id/button9"
         android:layout_toEndOf="@+id/button9"
-        android:layout_alignTop="@+id/button9" />
+        android:layout_toRightOf="@+id/button9"
+        android:background="@drawable/round_button"
+        android:text="+"
+        android:textSize="30sp" />
 
     <TextView
         android:id="@+id/textView"
         android:layout_width="match_parent"
-        android:background="#ffffff"
-        android:text="0"
-        android:gravity="bottom|right"
-        android:textSize="50dp"
-        android:layout_alignParentTop="true"
+        android:layout_height="80dp"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_height="160dp" />
+        android:layout_alignParentTop="true"
+        android:background="#ffffff"
+        android:gravity="bottom|right"
+        android:text="000000000"
+        android:textSize="50dp" />
+
+    <Button
+        android:id="@+id/buttonClear"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_above="@+id/button8"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:background="@drawable/round_button"
+        android:onClick="onClickButton"
+        android:text="C"
+        android:textSize="30sp" />
+
+    <Button
+        android:id="@+id/buttonMinus"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_alignBottom="@+id/button35"
+        android:layout_below="@+id/button9"
+        android:layout_toEndOf="@+id/button35"
+        android:layout_toRightOf="@+id/button35"
+        android:background="@drawable/round_button"
+        android:text="-"
+        android:textSize="30sp" />
 
 </RelativeLayout>
