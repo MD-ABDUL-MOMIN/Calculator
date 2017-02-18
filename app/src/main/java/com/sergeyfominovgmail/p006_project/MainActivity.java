@@ -28,14 +28,17 @@ public class MainActivity extends AppCompatActivity {
 
         //это понятно
         RelativeLayout relativeLayout = (RelativeLayout)findViewById(R.id.relativeLayoutCalcular);
-        //getChildCount() я так понял, что он возвращает количество подвидов в нашем инте count
+        //getChildCount() я так понял, что он возвращает количество подвидов в нашем инте count. Returns the number of children in the group. eto int
         int count = relativeLayout.getChildCount();
         //потом мы обрабатываем класс private BCH
         ButtonClickHandler buttonClickHandler = new ButtonClickHandler();
         for(int i=0; i<count; i++){
-            //здесь 
+            //я так понял что метод getChildAt Возвращает представление в указанной позиции в группе.
             View v = relativeLayout.getChildAt(i);
+            //Ключевое слово является бинарным оператором используется для проверки, если объект (экземпляр) является подтипом данного типа. eto instanceof
+            //кароче, если это подтип типа, то он возвращает значение true
             if(v instanceof Button){
+                //а здесь возвращаем наше значение, когда мы кликаем
                 v.setOnClickListener(buttonClickHandler);
             }
         }
@@ -48,7 +51,8 @@ public class MainActivity extends AppCompatActivity {
             if (view instanceof Button){
                 Button buttonClicked = (Button)view;
                 TextView textViewOutputScreen = (TextView) findViewById(R.id.textView);
-
+                //сердце операции. когда мы присвоили buttonclicked - view, и добавили к нему окошко textView, то остается только к получаемому тексту добавлять текст + string btnClicked
+                //и все это происходит через getText
                 textViewOutputScreen.setText(textViewOutputScreen.getText().toString()+buttonClicked.getText());
             }
         }
