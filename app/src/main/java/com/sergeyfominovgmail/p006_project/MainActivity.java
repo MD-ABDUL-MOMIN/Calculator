@@ -56,10 +56,10 @@ public class MainActivity extends AppCompatActivity {
                 Button buttonClicked = (Button) view;
                  //очищаем текст, если мы нажали на С
                  if (view.getId() == R.id.buttonClear) {
-                     textViewOutputScreen.setText("0");
+                     textViewOutputScreen.setText("");
 
                  }
-                 //чекаем equals, если нажато, то мы складываем, умножаем и т.д.
+                 //чекаем =, если нажато, то мы складываем, умножаем и т.д.
                  else if (view.getId() == R.id.buttonEquals) {
                      //юзаем исключение, ибо не надо делить и умножать в одно время
                      try {
@@ -68,7 +68,7 @@ public class MainActivity extends AppCompatActivity {
                      }
                      catch (Exception e){
                          Toast.makeText(getApplicationContext(),e.getMessage(), Toast.LENGTH_SHORT).show();
-                         textViewOutputScreen.setText("Error motherfucker");
+                         textViewOutputScreen.setText("0");
                      }
                  }
                  //чекаем две мат. операции на нажатие? если они у нас нажаты, то выводить ошибку дауну
