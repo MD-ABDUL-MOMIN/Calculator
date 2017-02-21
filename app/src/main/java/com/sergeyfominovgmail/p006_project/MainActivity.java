@@ -18,6 +18,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     Button btnPlus, btnMinus, btnUmn, btnDelit, btn1, btn2, btn3, btn4, btn5, btn6, btn7, btn8;
     Button btn9;
     EditText number1, number2;
+    public MainActivity btnClick;
 
     TextView Result, numbers;
     String oper="";
@@ -61,51 +62,34 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         btn7.setOnClickListener(this);
         btn8.setOnClickListener(this);
         btn9.setOnClickListener(this);
+
+        int idListbtn[] = {
+                R.id.btn1,
+                R.id.btn2,
+                R.id.btn3,
+                R.id.btn4,
+                R.id.btn5,
+                R.id.btn6,
+                R.id.btn7,
+                R.id.btn8,
+                R.id.btn9
+        };
+        for(int id:idListbtn){
+            View v = (View) findViewById(id);
+            v.setOnClickListener(btnClick);
+        }
     }
 
     @Override
     public void onClick(View v) {
 
-        switch (v.getId()){
-            case R.id.btn1:
-                Toast.makeText(MainActivity.this,"Pressed Button 1",Toast.LENGTH_SHORT).show();
-                break;
-            case R.id.btn2:
-                Toast.makeText(MainActivity.this,"Pressed Button 2",Toast.LENGTH_SHORT).show();
-                break;
-            case R.id.btn3:
-                Toast.makeText(MainActivity.this,"Pressed Button 3",Toast.LENGTH_SHORT).show();
-                break;
-            case R.id.btn4:
-                Toast.makeText(MainActivity.this,"Pressed Button 4",Toast.LENGTH_SHORT).show();
-                break;
-            case R.id.btn5:
-                Toast.makeText(MainActivity.this,"Pressed Button 5",Toast.LENGTH_SHORT).show();
-                break;
-            case R.id.btn6:
-                Toast.makeText(MainActivity.this,"Pressed Button 6",Toast.LENGTH_SHORT).show();
-                break;
-            case R.id.btn7:
-                Toast.makeText(MainActivity.this,"Pressed Button 7",Toast.LENGTH_SHORT).show();
-                break;
-            case R.id.btn8:
-                Toast.makeText(MainActivity.this,"Pressed Button 8",Toast.LENGTH_SHORT).show();
-                break;
-            case R.id.btn9:
-                Toast.makeText(MainActivity.this,"Pressed Button 9",Toast.LENGTH_SHORT).show();
-                break;
-        }
-
         float num1 = 0;
         float num2 = 0;
         float result = 0;
 
-        int button1 = 1;
-
         if(TextUtils.isEmpty(number1.getText().toString()) || TextUtils.isEmpty(number2.getText().toString())){
             return;
         }
-
         num1 = Float.parseFloat(number1.getText().toString());
         num2 = Float.parseFloat(number2.getText().toString());
 
@@ -126,7 +110,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 oper = "/";
                 result = num1 / num2;
                 break;
+            default:
+                String numb = ((Button) v).getText().toString();
+                getKeyboard(numb);
+                break;
         }
         Result.setText(num1 + " " + oper + " " + num2 + "=" + result);
+    }
+    public void getKeyboard(String str){
+        String scrCurrent = number1.getText().toString();
+        scrCurrent += number1;
+        number1.setText(scrCurrent);
     }
 }
