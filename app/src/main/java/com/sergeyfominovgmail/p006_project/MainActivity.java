@@ -18,85 +18,15 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        //вызов черной надписи на ~ 2 секунды, оповещение типа.. прочитать про toast
-//        final Button button7 = (Button) findViewById(R.id.button7);
-//        button7.setOnClickListener(new View.OnClickListener(){
-//            public void onClick(View view){
-//                Toast.makeText(getApplicationContext(),"Java 7 button clicked C??" +
-// ((Button)view).getText(), Toast.LENGTH_SHORT).show();
-//            }
-//        });
-
-        //это понятно
-        RelativeLayout relativeLayout = (RelativeLayout) findViewById(R.id.relativeLayoutCalcular);
-        //getChildCount() я так понял, что он возвращает количество подвидов в нашем инте count.
-        // Returns the number of children in the group. eto int
-        int count = relativeLayout.getChildCount();
-        //потом мы обрабатываем класс private BCH
-        ButtonClickHandler buttonClickHandler = new ButtonClickHandler();
-        for (int i = 0; i < count; i++) {
-            //я так понял что метод getChildAt Возвращает представление в указанной позиции в группе.
-            View v = relativeLayout.getChildAt(i);
-            //Ключевое слово является бинарным оператором используется для проверки, если объект
-            // (экземпляр) является подтипом данного типа. eto instanceof
-            //кароче, если это подтип типа, то он возвращает значение true
-            if (v instanceof Button) {
-                //а здесь возвращаем наше значение, когда мы кликаем
-                v.setOnClickListener(buttonClickHandler);
-            }
-        }
     }
 
     private class ButtonClickHandler implements View.OnClickListener {
         @Override
         public void onClick(View view) {
 
-            TextView textViewOutputScreen = (TextView) findViewById(R.id.textView);
-             if (view instanceof Button) {
-                Button buttonClicked = (Button) view;
-                 //очищаем текст, если мы нажали на С
-                 if (view.getId() == R.id.buttonClear) {
-                     textViewOutputScreen.setText("");
 
-                 }
-                 //чекаем =, если нажато, то мы складываем, умножаем и т.д.
-                 else if (view.getId() == R.id.buttonEquals) {
-                     //юзаем исключение, ибо не надо делить и умножать в одно время
-                     try {
-                         double CalculatorUtility = com.sergeyfominovgmail.p006_project.CalculatorUtility.evaluate(textViewOutputScreen.getText().toString());
-                         textViewOutputScreen.setText(Double.toString(CalculatorUtility));
-                     }
-                     catch (Exception e){
-                         Toast.makeText(getApplicationContext(),e.getMessage(), Toast.LENGTH_SHORT).show();
-                         textViewOutputScreen.setText("0");
-                     }
-                 }
-                 //чекаем две мат. операции на нажатие? если они у нас нажаты, то выводить ошибку дауну
-                 else if (textViewOutputScreen.getText().length() > 0 &&
-                         CalculatorUtility.Operator(textViewOutputScreen.getText().charAt(textViewOutputScreen.getText().length() - 1)) &&
-                         CalculatorUtility.Operator((buttonClicked.getText().charAt(0))))
-                 {
-                     String errorMessage = "Error motherfucker, cause" +
-                             textViewOutputScreen.getText().charAt(textViewOutputScreen.getText().length() - 1) +
-                             "and" + buttonClicked.getText();
-                     Toast.makeText(getApplicationContext(), errorMessage, Toast.LENGTH_LONG).show();
-                 }
-
-                 else {
-                     //equals - Указывает, является ли какой-либо другой объект "равно" этот. Indicates
-                     // whether some other object is "equal to" this one.
-                     //здесь при цифре = 0, когда мы вводим другое число не будет вот так 05, а будет
-                     // просто 5. 0 исчезает.
-                     if (textViewOutputScreen.getText().equals("0") &&
-                             CalculatorUtility.Operator(buttonClicked.getText().charAt(0))) {
-                         textViewOutputScreen.setText("");
-                     }
-                     //сердце операции. когда мы присвоили buttonclicked - view, и добавили к нему окошко
-                     // textView, то остается только к получаемому тексту добавлять текст + string
-                     // btnClicked и все это происходит через getText
-                     textViewOutputScreen.setText(textViewOutputScreen.getText().toString() + buttonClicked.getText());
-                 }
-            }
         }
     }
+
 }
+
