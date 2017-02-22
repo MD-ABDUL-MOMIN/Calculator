@@ -25,13 +25,6 @@
             android:layout_weight="1"
             android:inputType="numberDecimal" />
 
-        <EditText
-            android:id="@+id/number2"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="5pt"
-            android:layout_weight="1"
-            android:inputType="numberDecimal" />
     </LinearLayout>
 
     <LinearLayout
@@ -67,6 +60,12 @@
             android:layout_weight="1"
             android:text="/" />
     </LinearLayout>
+
+    <Button
+        android:text="="
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/buttonEq" />
 
     <TextView
         android:id="@+id/Result"
