@@ -15,19 +15,17 @@ import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity{
 
-    EditText number1;
-    private ButtonClickListener btnClick;
+    private EditText Scr;
+    //here was a mistake!
+    public ButtonClickListener btnClick = new ButtonClickListener();
     private String operation;
     private float nBF;
-
-    TextView Result, numbers;
-    String oper = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        number1 = (EditText) findViewById(R.id.number1);
+        Scr = (EditText) findViewById(R.id.number1);
         int idListbtn[] = {R.id.btn1, R.id.btn2, R.id.btn3, R.id.btn4, R.id.btn5, R.id.btn6,
                 R.id.btn7, R.id.btn8, R.id.btn9, R.id.btnPlus, R.id.btnMinus, R.id.btnUmn,
                 R.id.btnDelit, R.id.buttonEq
@@ -37,44 +35,42 @@ public class MainActivity extends AppCompatActivity{
             v.setOnClickListener(btnClick);
         }
     }
-    public void getKeyboard(String str) {
-        String scrC = numbers.getText().toString();
-        scrC += str;
-        numbers.setText(scrC);
+    public void getKeyboard(String strq) {
+        String scrCq = Scr.getText().toString();
+        scrCq += strq;
+        Scr.setText(scrCq);
     }
     public void mResult(){
-        float num = Float.parseFloat(numbers.getText().toString());
+        float numAf = Float.parseFloat(Scr.getText().toString());
         float result = 0;
         if(operation.equals("+")){
-            result = num + nBF;
+            result = numAf + nBF;
         }
         if(operation.equals("-")){
-            result = num - nBF;
+            result = numAf - nBF;
         }
         if(operation.equals("*")){
-            result = num * nBF;
+            result = numAf * nBF;
         }
         if(operation.equals("/")){
-            result = num / nBF;
+            result = numAf / nBF;
         }
-        number1.setText(String.valueOf(result));
+        Scr.setText(String.valueOf(result));
     }
-    public void mMath(String str){
-        //save the screen
-        nBF = Float.parseFloat(number1.getText().toString());
-        //operation
-        operation = str;
-        //clear screen
-        number1.setText("0");
+    public void mMath(String string){
+        nBF = Float.parseFloat(Scr.getText().toString());
+        operation = string;
+        Scr.setText("0");
+
     }
     public class ButtonClickListener implements View.OnClickListener{
         public void onClick(View v) {
-            switch (v.getId()) {
+            switch (v.getId()){
                 case R.id.btnPlus:
                     mMath("+");
                     break;
                 case R.id.btnMinus:
-                    mMath("-");
+                    mMath("+");
                     break;
                 case R.id.btnUmn:
                     mMath("*");
@@ -84,9 +80,10 @@ public class MainActivity extends AppCompatActivity{
                     break;
                 case R.id.buttonEq:
                     mResult();
+                    break;
                 default:
-                    String strj = ((Button) v).getText().toString();
-                    getKeyboard(strj);
+                    String numb = ((Button) v).getText().toString();
+                    getKeyboard(numb);
                     break;
             }
         }
