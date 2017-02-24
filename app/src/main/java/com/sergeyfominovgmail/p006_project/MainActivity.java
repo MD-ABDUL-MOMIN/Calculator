@@ -26,8 +26,8 @@ public class MainActivity extends AppCompatActivity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Scr = (EditText) findViewById(R.id.number1);
-        int idListbtn[] = {R.id.btn1, R.id.btn2, R.id.btn12, R.id.btn4, R.id.btn5, R.id.btn6,
-                R.id.btn7, R.id.btn10, R.id.btn11, R.id.btn13, R.id.btn14, R.id.btn15, R.id.btn16,
+        int idListbtn[] = {R.id.btn1, R.id.btn2, R.id.btn4, R.id.btn5, R.id.btn6,
+                R.id.btn10, R.id.btn14, R.id.btn15,
                 R.id.btn17, R.id.btn18, R.id.btn19,
                 R.id.btnPlus, R.id.btnMinus, R.id.btnUmn,
                 R.id.btnDelit, R.id.buttonEq
